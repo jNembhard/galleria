@@ -1,5 +1,6 @@
-export default data = [
+const portrait_data = [
   {
+    id: 1,
     name: "Starry Night",
     year: 1889,
     description:
@@ -10,7 +11,7 @@ export default data = [
       name: "Vincent Van Gogh",
     },
     images: {
-      thumbnail: "./assets/starry-night/thumbnail.jpg",
+      thumbnail: { source: "/assets/starry-night/thumbnail.jpg", height: 250 },
       hero: {
         small: "./assets/starry-night/hero-small.jpg",
         large: "./assets/starry-night/hero-large.jpg",
@@ -19,6 +20,7 @@ export default data = [
     },
   },
   {
+    id: 2,
     name: "Girl with a Pearl Earring",
     year: 1665,
     description:
@@ -29,7 +31,10 @@ export default data = [
       name: "Johannes Vermeer",
     },
     images: {
-      thumbnail: "./assets/girl-with-pearl-earring/thumbnail.jpg",
+      thumbnail: {
+        source: "/assets/girl-with-pearl-earring/thumbnail.jpg",
+        height: 400,
+      },
       hero: {
         small: "./assets/girl-with-pearl-earring/hero-small.jpg",
         large: "./assets/girl-with-pearl-earring/hero-large.jpg",
@@ -38,6 +43,7 @@ export default data = [
     },
   },
   {
+    id: 3,
     name: "Guernica",
     year: 1937,
     description:
@@ -48,7 +54,7 @@ export default data = [
       name: "Pablo Picasso",
     },
     images: {
-      thumbnail: "./assets/guernica/thumbnail.jpg",
+      thumbnail: { source: "/assets/guernica/thumbnail.jpg", height: 285 },
       hero: {
         small: "./assets/guernica/hero-small.jpg",
         large: "./assets/guernica/hero-large.jpg",
@@ -57,6 +63,7 @@ export default data = [
     },
   },
   {
+    id: 4,
     name: "Penitent Magdalene",
     year: 1625,
     description:
@@ -68,7 +75,10 @@ export default data = [
       name: "Artemisia Gentileschi",
     },
     images: {
-      thumbnail: "./assets/penitent-magdalene/thumbnail.jpg",
+      thumbnail: {
+        source: "/assets/penitent-magdalene/thumbnail.jpg",
+        height: 250,
+      },
       hero: {
         small: "./assets/penitent-magdalene/hero-small.jpg",
         large: "./assets/penitent-magdalene/hero-large.jpg",
@@ -77,6 +87,7 @@ export default data = [
     },
   },
   {
+    id: 5,
     name: "The Storm on the Sea of Galilee",
     year: 1633,
     description:
@@ -87,7 +98,10 @@ export default data = [
       name: "Rembrandt",
     },
     images: {
-      thumbnail: "./assets/the-storm-on-the-sea-of-galilee/thumbnail.jpg",
+      thumbnail: {
+        source: "/assets/the-storm-on-the-sea-of-galilee/thumbnail.jpg",
+        height: 340,
+      },
       hero: {
         small: "./assets/the-storm-on-the-sea-of-galilee/hero-small.jpg",
         large: "./assets/the-storm-on-the-sea-of-galilee/hero-large.jpg",
@@ -96,6 +110,7 @@ export default data = [
     },
   },
   {
+    id: 6,
     name: "The Great Wave off Kanagawa",
     year: 1831,
     description:
@@ -106,7 +121,10 @@ export default data = [
       name: "Hokusai",
     },
     images: {
-      thumbnail: "./assets/the-great-wave-off-kanagawa/thumbnail.jpg",
+      thumbnail: {
+        source: "/assets/the-great-wave-off-kanagawa/thumbnail.jpg",
+        height: 280,
+      },
       hero: {
         small: "./assets/the-great-wave-off-kanagawa/hero-small.jpg",
         large: "./assets/the-great-wave-off-kanagawa/hero-large.jpg",
@@ -115,6 +133,7 @@ export default data = [
     },
   },
   {
+    id: 7,
     name: "Van Gogh Self-portrait",
     year: 1889,
     description:
@@ -125,7 +144,10 @@ export default data = [
       name: "Vincent Van Gogh",
     },
     images: {
-      thumbnail: "./assets/van-gogh-self-portrait/thumbnail.jpg",
+      thumbnail: {
+        source: "/assets/van-gogh-self-portrait/thumbnail.jpg",
+        height: 500,
+      },
       hero: {
         small: "./assets/van-gogh-self-portrait/hero-small.jpg",
         large: "./assets/van-gogh-self-portrait/hero-large.jpg",
@@ -134,6 +156,7 @@ export default data = [
     },
   },
   {
+    id: 8,
     name: "The Sleeping Gypsy",
     year: 1897,
     description:
@@ -144,7 +167,10 @@ export default data = [
       name: "Henri Rousseau",
     },
     images: {
-      thumbnail: "./assets/the-sleeping-gypsy/thumbnail.jpg",
+      thumbnail: {
+        source: "/assets/the-sleeping-gypsy/thumbnail.jpg",
+        height: 250,
+      },
       hero: {
         small: "./assets/the-sleeping-gypsy/hero-small.jpg",
         large: "./assets/the-sleeping-gypsy/hero-large.jpg",
@@ -153,6 +179,7 @@ export default data = [
     },
   },
   {
+    id: 9,
     name: "Lady with an Ermine",
     year: 1489,
     description:
@@ -163,7 +190,10 @@ export default data = [
       name: "Leonardo da Vinci",
     },
     images: {
-      thumbnail: "./assets/lady-with-an-ermine/thumbnail.jpg",
+      thumbnail: {
+        source: "/assets/lady-with-an-ermine/thumbnail.jpg",
+        height: 420,
+      },
       hero: {
         small: "./assets/lady-with-an-ermine/hero-small.jpg",
         large: "./assets/lady-with-an-ermine/hero-large.jpg",
@@ -172,6 +202,7 @@ export default data = [
     },
   },
   {
+    id: 10,
     name: "The Night Café",
     year: 1888,
     description:
@@ -182,7 +213,10 @@ export default data = [
       name: "Vincent Van Gogh",
     },
     images: {
-      thumbnail: "./assets/the-night-cafe/thumbnail.jpg",
+      thumbnail: {
+        source: "/assets/the-night-cafe/thumbnail.jpg",
+        height: 260,
+      },
       hero: {
         small: "./assets/the-night-cafe/hero-small.jpg",
         large: "./assets/the-night-cafe/hero-large.jpg",
@@ -191,6 +225,7 @@ export default data = [
     },
   },
   {
+    id: 11,
     name: "The Basket of Apples",
     year: 1893,
     description:
@@ -201,7 +236,10 @@ export default data = [
       name: "Paul Cézanne",
     },
     images: {
-      thumbnail: "./assets/the-basket-of-apples/thumbnail.jpg",
+      thumbnail: {
+        source: "/assets/the-basket-of-apples/thumbnail.jpg",
+        height: 430,
+      },
       hero: {
         small: "./assets/the-basket-of-apples/hero-small.jpg",
         large: "./assets/the-basket-of-apples/hero-large.jpg",
@@ -210,6 +248,7 @@ export default data = [
     },
   },
   {
+    id: 12,
     name: "The Boy in the Red Vest",
     year: 1889,
     description:
@@ -220,7 +259,10 @@ export default data = [
       name: "Paul Cézanne",
     },
     images: {
-      thumbnail: "./assets/the-boy-in-the-red-vest/thumbnail.jpg",
+      thumbnail: {
+        source: "/assets/the-boy-in-the-red-vest/thumbnail.jpg",
+        height: 260,
+      },
       hero: {
         small: "./assets/the-boy-in-the-red-vest/hero-small.jpg",
         large: "./assets/the-boy-in-the-red-vest/hero-large.jpg",
@@ -229,6 +271,7 @@ export default data = [
     },
   },
   {
+    id: 13,
     name: "Arnolfini Portrait",
     year: 1434,
     description:
@@ -239,7 +282,10 @@ export default data = [
       name: "Jan van Eyck",
     },
     images: {
-      thumbnail: "./assets/arnolfini-portrait/thumbnail.jpg",
+      thumbnail: {
+        source: "/assets/arnolfini-portrait/thumbnail.jpg",
+        height: 330,
+      },
       hero: {
         small: "./assets/arnolfini-portrait/hero-small.jpg",
         large: "./assets/arnolfini-portrait/hero-large.jpg",
@@ -248,6 +294,7 @@ export default data = [
     },
   },
   {
+    id: 14,
     name: "Mona Lisa",
     year: 1503,
     description:
@@ -258,7 +305,7 @@ export default data = [
       name: "Leonardo da Vinci",
     },
     images: {
-      thumbnail: "./assets/mona-lisa/thumbnail.jpg",
+      thumbnail: { source: "/assets/mona-lisa/thumbnail.jpg", height: 525 },
       hero: {
         small: "./assets/mona-lisa/hero-small.jpg",
         large: "./assets/mona-lisa/hero-large.jpg",
@@ -267,6 +314,7 @@ export default data = [
     },
   },
   {
+    id: 15,
     name: "The Swing",
     year: 1767,
     description:
@@ -277,7 +325,7 @@ export default data = [
       name: "Jean-Honoré Fragonard",
     },
     images: {
-      thumbnail: "./assets/the-swing/thumbnail.jpg",
+      thumbnail: { source: "/assets/the-swing/thumbnail.jpg", height: 340 },
       hero: {
         small: "./assets/the-swing/hero-small.jpg",
         large: "./assets/the-swing/hero-large.jpg",
@@ -286,3 +334,5 @@ export default data = [
     },
   },
 ];
+
+export default portrait_data;

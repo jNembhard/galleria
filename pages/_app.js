@@ -7,8 +7,8 @@ const theme = {
   whisperGrey: "#e5e5e5",
   whiteSmoke: "#f3f3f3",
   white: "#ffffff",
-  headingWeight: 700,
-  bodyWeight: 400,
+  headingWeight: "700",
+  bodyWeight: "400",
 };
 
 function MyApp({ Component, pageProps }) {

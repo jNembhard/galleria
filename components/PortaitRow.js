@@ -4,23 +4,25 @@ import styled from "styled-components";
 
 export default function PortraitRow({ thumbnail, height, name, author }) {
   return (
-    <Portrait>
-      <div className="portrait-image">
-        <Image
-          priority
-          src={thumbnail}
-          width={327}
-          height={height}
-          layout="intrinsic"
-          objectFit={"contain"}
-          alt={name}
-        />
-      </div>
-      <div className="portrait-description">
-        <h1>{name}</h1>
-        <p>{author}</p>
-      </div>
-    </Portrait>
+    <Link href="slides/slideshow" passHref>
+      <Portrait>
+        <div className="portrait-image">
+          <Image
+            priority
+            src={thumbnail}
+            width={327}
+            height={height}
+            layout="responsive"
+            objectFit={"contain"}
+            alt={name}
+          />
+        </div>
+        <div className="portrait-description">
+          <h1>{name}</h1>
+          <p>{author}</p>
+        </div>
+      </Portrait>
+    </Link>
   );
 }
 
@@ -29,15 +31,50 @@ const Portrait = styled.div`
   flex-direction: column;
   position: relative;
   justify-content: flex-end;
-  /* padding-bottom: 4vw; */
+  align-items: left;
+  animation: fadeOut 1s;
+  margin-bottom: 24px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.75;
+    animation: fadeIn 1s;
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.75;
+        background-color: linear-gradient(
+          ${(props) => props.theme.white},
+          ${(props) => props.theme.grey}
+        );
+      }
+    }
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 0.75;
+      background-color: linear-gradient(
+        ${(props) => props.theme.white},
+        ${(props) => props.theme.grey}
+      );
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   .portrait-description {
     position: absolute;
     z-index: 10;
-    padding: 25px;
-    padding-bottom: calc(2vw + 25px);
+    bottom: 5px;
+    padding: 0 25px calc(1vw + 10px);
+    cursor: pointer;
 
     h1 {
-      /* margin-top: 120%; */
       z-index: 10;
       font-size: 24px;
       color: ${(props) => props.theme.white};
@@ -55,6 +92,5 @@ const Portrait = styled.div`
 
   .portrait-image {
     display: block;
-    padding-bottom: 24px;
   }
 `;

@@ -14,7 +14,7 @@ export default function Home() {
         <meta name="description" content="A virtual art gallery." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header name="Start Slideshow" />
+      <Header name="Start Slideshow" href="slides/slideshow" />
       <main className={styles.main}>
         <h1 className={styles.title}></h1>
         <Picture>
@@ -36,15 +36,13 @@ export default function Home() {
 
         <div className={styles.grid}></div>
       </main>
-
-      <footer className={styles.footer}></footer>
     </div>
   );
 }
 
 const Picture = styled.div`
   max-width: 100%;
-  padding-bottom: 5.5vw;
+  /* padding-bottom: 5.5vw; */
 
   .picture-row {
     /* margin: -12px 0; */

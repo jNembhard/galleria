@@ -24,6 +24,7 @@ export default function Slideshow() {
             artist={data.artist.image}
             year={data.year}
             description={data.description}
+            gallery={data.gallery}
           />
         ))}
       </main>

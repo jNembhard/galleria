@@ -2,24 +2,33 @@ import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
 import portrait_data from "../public/portrait_data.js";
+import ModalArt from "./ModalArt";
 
 export default function Slide({
-  source,
   artist,
+  description,
+  gallery,
+  height,
   name,
+  source,
   subtitle,
   year,
-  description,
 }) {
   return (
     <Slides>
       <div className="slide-hero">
+        <ModalArt
+          gallery={gallery}
+          height={height}
+          name={name}
+          source={source}
+        />
         <Image
           width={327}
           height={280}
           layout="responsive"
           src={source}
-          alt="test"
+          alt={name}
         />
 
         <div className="slide-hero__title">
@@ -50,6 +59,7 @@ const Slides = styled.div`
     position: relative;
     z-index: 0;
   }
+
   .slide-hero__title {
     position: absolute;
     margin-top: 30px;

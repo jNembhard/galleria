@@ -29,9 +29,6 @@ export default function Home() {
               />
             ))}
           </div>
-          {/* <div>Row 2</div>
-          <div>Row 3</div>
-          <div>Row 4</div> */}
         </Picture>
 
         <div className={styles.grid}></div>

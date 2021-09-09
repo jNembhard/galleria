@@ -13,11 +13,10 @@ export default function ModalArt({ gallery, height, name, source }) {
 
   const customStyles = {
     overlay: {
-      backgroundColor: "black",
-      opacity: ".9",
+      backgroundColor: "rgba(0,0,0,0.85)",
     },
     content: {
-      backgroundColor: "black",
+      backgroundColor: "transparent",
       border: "none",
       opacity: "1",
       display: "flex",
@@ -103,7 +102,7 @@ const ViewImage = styled.div`
 `;
 
 const Test = styled.div`
-  background-color: black;
+  background-color: transparent;
   text-align: right;
 
   .test__close {

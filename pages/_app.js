@@ -1,8 +1,7 @@
 import "../styles/globals.scss";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import handleCarousel from "../redux/handleCarousel";
+import store from "../redux/store";
 
 const theme = {
   black: "#000000",
@@ -15,7 +14,6 @@ const theme = {
 };
 
 function MyApp({ Component, pageProps }) {
-  const store = createStore(handleCarousel);
   return (
     <>
       <Provider store={store}>

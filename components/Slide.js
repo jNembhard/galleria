@@ -55,6 +55,8 @@ export default function Slide({
 }
 
 const Slides = styled.div`
+  /* width: 100vw; */
+
   .slide-hero {
     position: relative;
     z-index: 0;

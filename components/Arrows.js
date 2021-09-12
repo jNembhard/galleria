@@ -1,5 +1,4 @@
 import { useSelector, useDispatch } from "react-redux";
-import portrait_data from "../public/portrait_data";
 import styled from "styled-components";
 import Image from "next/image";
 import {
@@ -8,6 +7,7 @@ import {
   numberOfSlides,
   paginate,
 } from "../redux/slideshowReducer";
+import ProgressBar from "./ProgressBar";
 
 export default function Arrow() {
   const current = useSelector(currentSlide);
@@ -19,7 +19,7 @@ export default function Arrow() {
 
   return (
     <ArrowWrap>
-      <div>Insert a ProgressBar</div>
+      <ProgressBar width={progressBar}></ProgressBar>
 
       <div className="arrow-container">
         <div className="arrow-container__description">
@@ -57,23 +57,37 @@ export default function Arrow() {
 
 const ArrowWrap = styled.div`
   width: 100%;
-  .arrow {
+  .arrow-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
 
-    width: 58px;
+    .arrow-container__description {
+      padding: 17px 24px;
+      h3 {
+        font-size: 14px;
+      }
+      p {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 24px;
     height: 16px;
 
     .arrow__left {
       cursor: pointer;
+      padding-right: 24px;
     }
 
     .arrow__right {
       cursor: pointer;
     }
   }
-
-  border: 1px solid red;
-  margin: 28px 24px 100px;
 `;

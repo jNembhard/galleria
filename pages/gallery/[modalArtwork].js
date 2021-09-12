@@ -1,8 +1,12 @@
 import { useRouter } from "next/router";
-
+import ModalArt from "../../components/ModalArt";
 export default function GalleryPage() {
   const router = useRouter();
-  const { modalArtwork } = router.query.id;
+  //   const { modalArtwork } = router.query.id;
 
-  return <div>I am {modalArtwork}</div>;
+  return (
+    <div>
+      <ModalArt />
+    </div>
+  );
 }

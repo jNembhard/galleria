@@ -2,7 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
 import portrait_data from "../public/portrait_data.js";
+import { useMediaQuery } from "./hooks/useMediaQuery.js";
+import { useDispatch, useSelector } from "react-redux";
+import { openLightBox } from "../redux/lightboxReducer";
 import ModalArt from "./ModalArt";
+import {
+  currentSlide,
+  currentSlideIndex,
+  slidesDirection,
+} from "../redux/slideshowReducer";
 
 export default function Slide({
   artist,
@@ -12,51 +20,60 @@ export default function Slide({
   name,
   source,
   subtitle,
+  wikipedia,
   year,
 }) {
+  const current = useSelector(currentSlide);
+  const currentIndex = useSelector(currentSlideIndex);
+  const direction = useSelector(slidesDirection);
+  const dispatch = useDispatch();
+
+  const breakPoint767 = useMediaQuery(767);
+
   return (
     <Slides>
       <div className="slide-hero">
-        <ModalArt
-          gallery={gallery}
-          height={height}
-          name={name}
-          source={source}
-        />
+        <ModalArt />
         <Image
+          priority
           width={327}
           height={280}
           layout="responsive"
-          src={source}
-          alt={name}
+          src={
+            breakPoint767
+              ? current.images.hero.large
+              : current.images.hero.small
+          }
+          alt={current.name}
         />
 
         <div className="slide-hero__title">
-          <h1>{name}</h1>
-          <p>{subtitle}</p>
+          <h1>{current.name}</h1>
+          <p>{current.artist.name}</p>
         </div>
         <div className="slide-hero__artist">
           <Image
+            priority
             width={64}
             height={64}
             layout="intrinsic"
-            src={artist}
-            alt={name}
+            src={current.artist.image}
+            alt={current.name}
           />
         </div>
       </div>
       <div className="slide-description">
-        <h1>{year}</h1>
-        <p>{description}</p>
-        <small>Go To Source</small>
+        <h1>{current.year}</h1>
+        <p>{current.description}</p>
+        <a target="_blank" href={current.source} rel="noopener noreferrer">
+          Go To Source
+        </a>
       </div>
     </Slides>
   );
 }
 
 const Slides = styled.div`
-  /* width: 100vw; */
-
   .slide-hero {
     position: relative;
     z-index: 0;
@@ -69,8 +86,11 @@ const Slides = styled.div`
     bottom: 30px;
     background-color: ${(props) => props.theme.white};
     bottom: 0;
-    padding: 0 100px calc(2vw + 25px) 24px;
-    z-index: 1;
+    padding: 0 0 24px 24px;
+    /* margin-bottom: 24px; */
+    width: 280px;
+    height: 133px;
+    z-index: 0;
     align-items: left;
 
     h1 {
@@ -88,7 +108,7 @@ const Slides = styled.div`
 
   .slide-hero__artist {
     position: absolute;
-    margin-top: 50px;
+    padding-top: 58px;
     margin-left: 24px;
     margin-right: 9px;
   }
@@ -113,11 +133,16 @@ const Slides = styled.div`
       font-weight: ${(props) => props.theme.headingWeight};
     }
 
-    small {
+    a {
       text-transform: uppercase;
       color: ${(props) => props.theme.grey};
       font-size: 9px;
       text-decoration: underline ${(props) => props.theme.grey};
+
+      &:hover {
+        color: ${(props) => props.theme.black};
+        text-decoration: underline ${(props) => props.theme.black};
+      }
     }
   }
 `;

@@ -16,7 +16,7 @@ const portrait_data = [
         small: "/assets/starry-night/hero-small.jpg",
         large: "/assets/starry-night/hero-large.jpg",
       },
-      gallery: "./assets/starry-night/gallery.jpg",
+      gallery: "/assets/starry-night/gallery.jpg",
     },
   },
   {
@@ -39,7 +39,7 @@ const portrait_data = [
         small: "/assets/girl-with-pearl-earring/hero-small.jpg",
         large: "/assets/girl-with-pearl-earring/hero-large.jpg",
       },
-      gallery: "./assets/girl-with-pearl-earring/gallery.jpg",
+      gallery: "/assets/girl-with-pearl-earring/gallery.jpg",
     },
   },
   {
@@ -59,7 +59,7 @@ const portrait_data = [
         small: "/assets/guernica/hero-small.jpg",
         large: "/assets/guernica/hero-large.jpg",
       },
-      gallery: "./assets/guernica/gallery.jpg",
+      gallery: "/assets/guernica/gallery.jpg",
     },
   },
   {
@@ -83,7 +83,7 @@ const portrait_data = [
         small: "/assets/penitent-magdalene/hero-small.jpg",
         large: "/assets/penitent-magdalene/hero-large.jpg",
       },
-      gallery: "./assets/penitent-magdalene/gallery.jpg",
+      gallery: "/assets/penitent-magdalene/gallery.jpg",
     },
   },
   {
@@ -106,7 +106,7 @@ const portrait_data = [
         small: "/assets/the-storm-on-the-sea-of-galilee/hero-small.jpg",
         large: "/assets/the-storm-on-the-sea-of-galilee/hero-large.jpg",
       },
-      gallery: "./assets/the-storm-on-the-sea-of-galilee/gallery.jpg",
+      gallery: "/assets/the-storm-on-the-sea-of-galilee/gallery.jpg",
     },
   },
   {
@@ -129,7 +129,7 @@ const portrait_data = [
         small: "/assets/the-great-wave-off-kanagawa/hero-small.jpg",
         large: "/assets/the-great-wave-off-kanagawa/hero-large.jpg",
       },
-      gallery: "./assets/the-great-wave-off-kanagawa/gallery.jpg",
+      gallery: "/assets/the-great-wave-off-kanagawa/gallery.jpg",
     },
   },
   {
@@ -152,7 +152,7 @@ const portrait_data = [
         small: "/assets/van-gogh-self-portrait/hero-small.jpg",
         large: "/assets/van-gogh-self-portrait/hero-large.jpg",
       },
-      gallery: "./assets/van-gogh-self-portrait/gallery.jpg",
+      gallery: "/assets/van-gogh-self-portrait/gallery.jpg",
     },
   },
   {
@@ -175,7 +175,7 @@ const portrait_data = [
         small: "/assets/the-sleeping-gypsy/hero-small.jpg",
         large: "/assets/the-sleeping-gypsy/hero-large.jpg",
       },
-      gallery: "./assets/the-sleeping-gypsy/gallery.jpg",
+      gallery: "/assets/the-sleeping-gypsy/gallery.jpg",
     },
   },
   {
@@ -198,7 +198,7 @@ const portrait_data = [
         small: "/assets/lady-with-an-ermine/hero-small.jpg",
         large: "/assets/lady-with-an-ermine/hero-large.jpg",
       },
-      gallery: "./assets/lady-with-an-ermine/gallery.jpg",
+      gallery: "/assets/lady-with-an-ermine/gallery.jpg",
     },
   },
   {
@@ -221,7 +221,7 @@ const portrait_data = [
         small: "/assets/the-night-cafe/hero-small.jpg",
         large: "/assets/the-night-cafe/hero-large.jpg",
       },
-      gallery: "./assets/the-night-cafe/gallery.jpg",
+      gallery: "/assets/the-night-cafe/gallery.jpg",
     },
   },
   {
@@ -244,7 +244,7 @@ const portrait_data = [
         small: "/assets/the-basket-of-apples/hero-small.jpg",
         large: "/assets/the-basket-of-apples/hero-large.jpg",
       },
-      gallery: "./assets/the-basket-of-apples/gallery.jpg",
+      gallery: "/assets/the-basket-of-apples/gallery.jpg",
     },
   },
   {
@@ -267,7 +267,7 @@ const portrait_data = [
         small: "/assets/the-boy-in-the-red-vest/hero-small.jpg",
         large: "/assets/the-boy-in-the-red-vest/hero-large.jpg",
       },
-      gallery: "./assets/the-boy-in-the-red-vest/gallery.jpg",
+      gallery: "/assets/the-boy-in-the-red-vest/gallery.jpg",
     },
   },
   {
@@ -290,7 +290,7 @@ const portrait_data = [
         small: "/assets/arnolfini-portrait/hero-small.jpg",
         large: "/assets/arnolfini-portrait/hero-large.jpg",
       },
-      gallery: "./assets/arnolfini-portrait/gallery.jpg",
+      gallery: "/assets/arnolfini-portrait/gallery.jpg",
     },
   },
   {
@@ -310,7 +310,7 @@ const portrait_data = [
         small: "/assets/mona-lisa/hero-small.jpg",
         large: "/assets/mona-lisa/hero-large.jpg",
       },
-      gallery: "./assets/mona-lisa/gallery.jpg",
+      gallery: "/assets/mona-lisa/gallery.jpg",
     },
   },
   {
@@ -330,7 +330,7 @@ const portrait_data = [
         small: "/assets/the-swing/hero-small.jpg",
         large: "/assets/the-swing/hero-large.jpg",
       },
-      gallery: "./assets/the-swing/gallery.jpg",
+      gallery: "/assets/the-swing/gallery.jpg",
     },
   },
 ];

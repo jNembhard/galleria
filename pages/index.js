@@ -30,16 +30,14 @@ export default function Home() {
             ))}
           </div>
         </Picture>
-
-        <div className={styles.grid}></div>
       </main>
     </div>
   );
 }
 
 const Picture = styled.div`
-  max-width: 100%;
-  /* padding-bottom: 5.5vw; */
+  /* max-width: 100%; */
+  padding-bottom: 5.5vw;
 
   .picture-row {
     /* margin: -12px 0; */

@@ -1,15 +1,22 @@
-import { useRouter } from "next/router";
 import Link from "next/link";
-import Modal from "react-modal";
 import Image from "next/image";
 import styled from "styled-components";
+import Modal from "react-modal";
+import { useRouter } from "next/router";
+
+import { useDispatch, useSelector } from "react-redux";
+import { currentSlide } from "../redux/slideshowReducer";
 
 Modal.setAppElement("#__next");
 
-const artworks = ["CAD", "USD", "GBP", "MXN", "AUD", "EUR", "NOK"];
-
-export default function ModalArt({ gallery, height, name, source }) {
+export default function ModalArt() {
+  const current = useSelector(currentSlide);
   const router = useRouter();
+  const backDropHandler = (event) => {
+    if (!modalWrapperRef?.current?.contains(event.target)) {
+      onclose();
+    }
+  };
 
   const customStyles = {
     overlay: {
@@ -17,21 +24,17 @@ export default function ModalArt({ gallery, height, name, source }) {
     },
     content: {
       backgroundColor: "transparent",
-      border: "none",
-      opacity: "1",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+      border: "1px solid red",
+      maxHeight: "500px",
       overflow: "hidden",
     },
   };
 
   return (
     <div>
-      {" "}
       <Link
-        href={`/slides/slideshow/?modalArtwork=${gallery}`}
-        as={`/gallery/${name}`}
+        href={`/slides/slideshow/?modalArtwork=${current.images.gallery}`}
+        as={`/gallery/${current.name}`}
         passHref
       >
         <ViewImage>
@@ -44,7 +47,6 @@ export default function ModalArt({ gallery, height, name, source }) {
               src="/assets/shared/icon-view-image.svg"
               alt="view"
             />
-            <a>{gallery}</a>
           </div>
         </ViewImage>
       </Link>
@@ -53,18 +55,22 @@ export default function ModalArt({ gallery, height, name, source }) {
         onRequestClose={() => router.push("/slides/slideshow")}
         style={customStyles}
       >
-        <Test>
+        <Gallery>
           <Link href="/slides/slideshow" passHref>
-            <div className="test__close">close</div>
+            <Close>
+              <a>close</a>
+            </Close>
           </Link>
-          <Image
-            width={327}
-            height={300}
-            layout="responsive"
-            src={source}
-            alt="view"
-          />{" "}
-        </Test>
+          <Test>
+            <Image
+              priority
+              layout="fill"
+              objectFit={"contain"}
+              src={current.images.gallery}
+              alt="view"
+            />
+          </Test>
+        </Gallery>
       </Modal>
     </div>
   );
@@ -102,16 +108,51 @@ const ViewImage = styled.div`
 `;
 
 const Test = styled.div`
-  background-color: transparent;
-  text-align: right;
+  opacity: 1;
+  animation-name: fadeIn;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.6s;
+  margin-top: 0;
 
-  .test__close {
-    background-color: transparent;
-    color: ${(props) => props.theme.white};
-    text-transform: uppercase;
-    font-size: 14px;
-    margin-left: 187px;
-    margin-bottom: 38px;
-    letter-spacing: 3px;
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
+
+  &:after {
+    content: "";
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.6s;
+    @keyframes fadeOut {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+`;
+
+const Close = styled.div`
+  background-color: transparent;
+  color: ${(props) => props.theme.white};
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-left: 187px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  z-index: 5;
+`;
+
+const Gallery = styled.div`
+  display: flex;
+  z-index: 5;
 `;

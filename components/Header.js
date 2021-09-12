@@ -25,7 +25,7 @@ export default function Header({ name, href }) {
 }
 
 const Heading = styled.div`
-  padding-bottom: 24px;
+  padding: 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;

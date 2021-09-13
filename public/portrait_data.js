@@ -1,6 +1,6 @@
 const portrait_data = [
   {
-    id: 1,
+    id: 0,
     name: "Starry Night",
     year: 1889,
     description:
@@ -20,7 +20,7 @@ const portrait_data = [
     },
   },
   {
-    id: 2,
+    id: 1,
     name: "Girl with a Pearl Earring",
     year: 1665,
     description:
@@ -43,7 +43,7 @@ const portrait_data = [
     },
   },
   {
-    id: 3,
+    id: 2,
     name: "Guernica",
     year: 1937,
     description:
@@ -63,7 +63,7 @@ const portrait_data = [
     },
   },
   {
-    id: 4,
+    id: 3,
     name: "Penitent Magdalene",
     year: 1625,
     description:
@@ -87,7 +87,7 @@ const portrait_data = [
     },
   },
   {
-    id: 5,
+    id: 4,
     name: "The Storm on the Sea of Galilee",
     year: 1633,
     description:
@@ -110,7 +110,7 @@ const portrait_data = [
     },
   },
   {
-    id: 6,
+    id: 5,
     name: "The Great Wave off Kanagawa",
     year: 1831,
     description:
@@ -133,7 +133,7 @@ const portrait_data = [
     },
   },
   {
-    id: 7,
+    id: 6,
     name: "Van Gogh Self-portrait",
     year: 1889,
     description:
@@ -156,7 +156,7 @@ const portrait_data = [
     },
   },
   {
-    id: 8,
+    id: 7,
     name: "The Sleeping Gypsy",
     year: 1897,
     description:
@@ -179,7 +179,7 @@ const portrait_data = [
     },
   },
   {
-    id: 9,
+    id: 8,
     name: "Lady with an Ermine",
     year: 1489,
     description:
@@ -202,7 +202,7 @@ const portrait_data = [
     },
   },
   {
-    id: 10,
+    id: 9,
     name: "The Night Café",
     year: 1888,
     description:
@@ -225,7 +225,7 @@ const portrait_data = [
     },
   },
   {
-    id: 11,
+    id: 10,
     name: "The Basket of Apples",
     year: 1893,
     description:
@@ -248,7 +248,7 @@ const portrait_data = [
     },
   },
   {
-    id: 12,
+    id: 11,
     name: "The Boy in the Red Vest",
     year: 1889,
     description:
@@ -271,7 +271,7 @@ const portrait_data = [
     },
   },
   {
-    id: 13,
+    id: 12,
     name: "Arnolfini Portrait",
     year: 1434,
     description:
@@ -294,7 +294,7 @@ const portrait_data = [
     },
   },
   {
-    id: 14,
+    id: 13,
     name: "Mona Lisa",
     year: 1503,
     description:
@@ -314,7 +314,7 @@ const portrait_data = [
     },
   },
   {
-    id: 15,
+    id: 14,
     name: "The Swing",
     year: 1767,
     description:

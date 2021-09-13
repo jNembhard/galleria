@@ -3,7 +3,6 @@ import styles from "../../styles/Home.module.scss";
 import styled from "styled-components";
 import Header from "../../components/Header";
 import Slide from "../../components/Slide";
-// import Lightbox from "../../components/Lightbox";
 import Arrows from "../../components/Arrows";
 
 export default function Slideshow() {
@@ -17,11 +16,9 @@ export default function Slideshow() {
       <Header name="Stop Slideshow" href="/" />
 
       <main className={styles.main}>
-        {/* <Lightbox /> */}
         <Slide />
       </main>
       <Arrows />
-      {/* <footer className={styles.footer}></footer> */}
     </div>
   );
 }

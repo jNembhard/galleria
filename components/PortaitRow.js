@@ -1,11 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { setCurrentSlide } from "../redux/slideshowReducer";
 
-export default function PortraitRow({ thumbnail, height, name, author }) {
+export default function PortraitRow({ id, thumbnail, height, name, author }) {
+  const dispatch = useDispatch();
+
   return (
-    <Link href="slides/slideshow" passHref>
-      <Portrait>
+    <Link href={`slides/slideshow`} passHref>
+      <Portrait onClick={() => dispatch(setCurrentSlide(id ? id : 0))}>
         <div className="portrait-image">
           <Image
             priority

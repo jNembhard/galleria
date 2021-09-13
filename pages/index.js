@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import Header from "../components/Header";
 import PortraitRow from "../components/PortaitRow";
 import styles from "../styles/Home.module.scss";
@@ -22,6 +21,7 @@ export default function Home() {
             {portrait_data.map((data) => (
               <PortraitRow
                 key={data.id}
+                id={data.id}
                 name={data.name}
                 thumbnail={data.images.thumbnail.source}
                 height={data.images.thumbnail.height}

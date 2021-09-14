@@ -3,7 +3,7 @@ import styles from "../../styles/Home.module.scss";
 import Header from "../../components/Header";
 import Slide from "../../components/Slide";
 import Arrows from "../../components/Arrows";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 export default function Slideshow() {
   return (
@@ -24,21 +24,3 @@ export default function Slideshow() {
     </div>
   );
 }
-
-export const pageAnimation = {
-  hide: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      duration: 1,
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      duration: 1,
-    },
-  },
-};

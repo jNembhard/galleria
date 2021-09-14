@@ -15,14 +15,14 @@ export default function PortraitRow({ id, thumbnail, height, name, author }) {
         animate="visible"
         variants={{
           hidden: {
-            scale: 0.8,
+            scale: 0.4,
             opacity: 0,
           },
           visible: {
             scale: 1,
             opacity: 1,
             transition: {
-              delay: 0.4,
+              delay: 0.1,
             },
           },
         }}

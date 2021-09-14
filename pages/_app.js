@@ -2,6 +2,7 @@ import "../styles/globals.scss";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
 import store from "../redux/store";
+import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 const size = {
   tablet: "767px",
@@ -22,14 +23,18 @@ const theme = {
   desktop: `(min-width: ${size.desktop})`,
 };
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   return (
     <>
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </Provider>
+      <SwitchTransition mode="in-out">
+        <CSSTransition key={router.pathname} classNames="page" timeout={400}>
+          <ThemeProvider theme={theme}>
+            <Provider store={store}>
+              <Component {...pageProps} />
+            </Provider>
+          </ThemeProvider>
+        </CSSTransition>
+      </SwitchTransition>
     </>
   );
 }

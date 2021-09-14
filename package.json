@@ -17,6 +17,7 @@
     "react-modal": "^3.14.3",
     "react-redux": "^7.2.5",
     "react-swipeable": "^6.2.0",
+    "react-transition-group": "^4.4.2",
     "sass": "^1.39.0",
     "styled-components": "^5.3.1"
   },

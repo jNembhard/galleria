@@ -86,7 +86,6 @@ const ArrowWrap = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* padding-right: 24px; */
     height: 16px;
     width: 56px;
     margin-right: 24px;

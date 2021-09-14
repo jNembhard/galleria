@@ -25,7 +25,7 @@ export default function Header({ name, href }) {
 }
 
 const Heading = styled.div`
-  padding: 24px;
+  padding: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,6 +33,11 @@ const Heading = styled.div`
   .heading__container {
     width: 113.04px;
     height: 32px;
+
+    @media ${(props) => props.theme.laptop} {
+      width: 170px;
+      height: 48px;
+    }
   }
 
   .heading__slideshow {
@@ -44,6 +49,13 @@ const Heading = styled.div`
 
     &:hover {
       color: ${(props) => props.theme.black};
+    }
+
+    @media ${(props) => props.theme.laptop} {
+      font-size: 12px;
+      letter-spacing: 2.57px;
+      width: 172px;
+      height: 15px;
     }
   }
 `;

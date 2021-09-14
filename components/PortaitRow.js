@@ -31,11 +31,7 @@ export default function PortraitRow({ id, thumbnail, height, name, author }) {
 }
 
 const Portrait = styled.div`
-  display: flex;
-  flex-direction: column;
   position: relative;
-  justify-content: flex-end;
-  align-items: left;
   animation: fadeOut 1s;
   margin-bottom: 24px;
   cursor: pointer;
@@ -78,23 +74,37 @@ const Portrait = styled.div`
     padding: 0 25px calc(1vw + 10px);
     cursor: pointer;
 
+    @media ${(props) => props.theme.tablet} {
+      bottom: 0;
+
+      @media ${(props) => props.theme.laptop} {
+        bottom: -10px;
+      }
+    }
+
     h1 {
       z-index: 10;
       font-size: 24px;
       color: ${(props) => props.theme.white};
       margin-bottom: 7px;
       line-height: auto;
-    }
 
+      @media ${(props) => props.theme.laptop} {
+        font-size: 20px;
+        @media ${(props) => props.theme.desktop} {
+          font-size: 24px;
+        }
+      }
+    }
     p {
       margin-top: 0;
       font-size: 13px;
       z-index: 10;
-      color: ${(props) => props.theme.white};
+      color: ${(props) => props.theme.whiteSmoke};
     }
-  }
 
-  .portrait-image {
-    display: block;
+    .portrait-image {
+      display: block;
+    }
   }
 `;

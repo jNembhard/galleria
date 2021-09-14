@@ -17,18 +17,16 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.title}></h1>
         <Picture>
-          <div className="picture-row">
-            {portrait_data.map((data) => (
-              <PortraitRow
-                key={data.id}
-                id={data.id}
-                name={data.name}
-                thumbnail={data.images.thumbnail.source}
-                height={data.images.thumbnail.height}
-                author={data.artist.name}
-              />
-            ))}
-          </div>
+          {portrait_data.map((data) => (
+            <PortraitRow
+              key={data.id}
+              id={data.id}
+              name={data.name}
+              thumbnail={data.images.thumbnail.source}
+              height={data.images.thumbnail.height}
+              author={data.artist.name}
+            />
+          ))}
         </Picture>
       </main>
     </div>
@@ -36,10 +34,49 @@ export default function Home() {
 }
 
 const Picture = styled.div`
-  /* max-width: 100%; */
   padding-bottom: 5.5vw;
 
-  .picture-row {
-    /* margin: -12px 0; */
+  @media ${(props) => props.theme.tablet} {
+    display: column;
+    margin: 0 auto;
+    columns: 2;
+
+    & > * {
+      break-inside: avoid;
+      margin-bottom: 1em;
+    }
+    @media ${(props) => props.theme.laptop} {
+      display: column;
+      margin: 0 auto;
+      columns: 4;
+
+      & > * {
+        break-inside: avoid;
+      }
+    }
+  }
+
+  @supports (grid-template-rows: masonry) {
+    @media ${(props) => props.theme.tablet} {
+      display: grid;
+      gap: 1em;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: masonry;
+
+      & > * {
+        margin-bottom: 0em;
+      }
+
+      @media ${(props) => props.theme.laptop} {
+        display: grid;
+        gap: 1em;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: masonry;
+
+        & > * {
+          margin-bottom: 0em;
+        }
+      }
+    }
   }
 `;

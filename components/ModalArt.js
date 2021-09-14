@@ -24,8 +24,8 @@ export default function ModalArt() {
     },
     content: {
       backgroundColor: "transparent",
-      border: "1px solid red",
-      maxHeight: "500px",
+      border: "transparent",
+      maxHeight: "80%",
       overflow: "hidden",
     },
   };
@@ -61,7 +61,7 @@ export default function ModalArt() {
               <a>close</a>
             </Close>
           </Link>
-          <Test>
+          <Lightbox>
             <Image
               priority
               layout="fill"
@@ -69,7 +69,7 @@ export default function ModalArt() {
               src={current.images.gallery}
               alt="view"
             />
-          </Test>
+          </Lightbox>
         </Gallery>
       </Modal>
     </div>
@@ -105,15 +105,22 @@ const ViewImage = styled.div`
   &:hover {
     background-color: ${(props) => props.theme.grey};
   }
+  @media ${(props) => props.theme.tablet} {
+    width: 152px;
+    height: 40px;
+  }
 `;
 
-const Test = styled.div`
+const Lightbox = styled.div`
   opacity: 1;
   animation-name: fadeIn;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
   animation-duration: 0.6s;
   margin-top: 0;
+
+  @media ${(props) => props.theme.tablet} {
+  }
 
   @keyframes fadeIn {
     0% {
@@ -146,13 +153,18 @@ const Close = styled.div`
   color: ${(props) => props.theme.white};
   text-transform: uppercase;
   font-size: 14px;
-  margin-left: 187px;
+  margin-left: 80%;
   letter-spacing: 3px;
   cursor: pointer;
   z-index: 5;
+
+  @media ${(props) => props.theme.tablet} {
+    margin-left: 90%;
+  }
 `;
 
 const Gallery = styled.div`
   display: flex;
   z-index: 5;
+  text-align: center;
 `;

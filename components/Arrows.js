@@ -34,8 +34,8 @@ export default function Arrow() {
               src="/assets/shared/icon-back-button.svg"
               width={16}
               height={16}
-              layout="intrinsic"
-              alt="back arrow"
+              layout="responsive"
+              alt="previous arrow"
             />
           </div>
 
@@ -45,8 +45,8 @@ export default function Arrow() {
               src="/assets/shared/icon-next-button.svg"
               width={16}
               height={16}
-              layout="intrinsic"
-              alt="back arrow"
+              layout="responsive"
+              alt="next arrow"
             />
           </div>
         </div>
@@ -67,9 +67,17 @@ const ArrowWrap = styled.div`
       padding: 17px 24px;
       h3 {
         font-size: 14px;
+
+        @media ${(props) => props.theme.tablet} {
+          font-size: 18px;
+        }
       }
       p {
         font-size: 10px;
+        opacity: 0.7;
+        @media ${(props) => props.theme.tablet} {
+          font-size: 13px;
+        }
       }
     }
   }
@@ -77,17 +85,40 @@ const ArrowWrap = styled.div`
   .arrow {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-right: 24px;
+    justify-content: space-between;
+    /* padding-right: 24px; */
     height: 16px;
+    width: 56px;
+    margin-right: 24px;
+    position: relative;
+    overflow: hidden;
+
+    @media ${(props) => props.theme.tablet} {
+      height: 24px;
+      width: 90px;
+      margin-right: 40px;
+    }
 
     .arrow__left {
       cursor: pointer;
-      padding-right: 24px;
+      width: 16px;
+      height: 16px;
+
+      @media ${(props) => props.theme.tablet} {
+        height: 24px;
+        width: 24px;
+      }
     }
 
     .arrow__right {
       cursor: pointer;
+      width: 16px;
+      height: 16px;
+
+      @media ${(props) => props.theme.tablet} {
+        height: 24px;
+        width: 24px;
+      }
     }
   }
 `;

@@ -1,6 +1,5 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.scss";
-import styled from "styled-components";
 import Header from "../../components/Header";
 import Slide from "../../components/Slide";
 import Arrows from "../../components/Arrows";

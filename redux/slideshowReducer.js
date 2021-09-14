@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import portrait_data from "../public/portrait_data";
 
 const initialSlidesState = {

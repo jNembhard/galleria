@@ -16,7 +16,7 @@ export default function Slideshow() {
       <AnimatePresence exitBeforeEnter>
         <Header name="Stop Slideshow" href="/" />
 
-        <main className={styles.main}>
+        <main className={styles.sliedshowMain}>
           <Slide />
         </main>
         <Arrows />

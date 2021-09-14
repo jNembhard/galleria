@@ -9,7 +9,11 @@
 .main {
   padding: 24px 24px 0;
   border-top: 1px solid $whisper-grey;
+}
 
+.slideshowMain {
+  padding: 24px 24px 0;
+  border-top: 1px solid $whisper-grey;
   @include desktop {
     display: flex;
     align-items: center;

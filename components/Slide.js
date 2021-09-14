@@ -1,15 +1,15 @@
-import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
-import portrait_data from "../public/portrait_data.js";
 import { useMediaQuery } from "./hooks/useMediaQuery.js";
 import { useDispatch, useSelector } from "react-redux";
 import ModalArt from "./ModalArt";
-
+import { AnimatePresence, motion } from "framer-motion";
+import { useSwipeable } from "react-swipeable";
 import {
   currentSlide,
   currentSlideIndex,
   slidesDirection,
+  paginate,
 } from "../redux/slideshowReducer";
 
 export default function Slide() {
@@ -20,58 +20,90 @@ export default function Slide() {
 
   const breakPoint767 = useMediaQuery(767);
 
-  return (
-    <Slides>
-      <div className="slide-hero">
-        <div className="slide-hero__modal">
-          <ModalArt />
-        </div>
-        <div className="slide-hero__painting">
-          <Image
-            priority
-            width={327}
-            height={280}
-            layout="responsive"
-            objectFit={"contain"}
-            src={
-              breakPoint767
-                ? current.images.hero.large
-                : current.images.hero.small
-            }
-            alt={current.name}
-            className="slide-hero__painting"
-          />
-        </div>
+  const swipeHandler = useSwipeable({
+    onSwipedLeft: () => dispatch(paginate(1)),
+    onSwipedRight: () => dispatch(paginate(-1)),
+  });
 
-        <div className="slide-hero__title">
-          <h1>{current.name}</h1>
-          <p>{current.artist.name}</p>
-        </div>
-        <div className="slide-hero__artist">
-          <Image
-            priority
-            width={64}
-            height={64}
-            layout="responsive"
-            src={current.artist.image}
-            alt={current.name}
-          />
-        </div>
-      </div>
-      <div className="slide-description">
-        <h1>{current.year}</h1>
-        <p>{current.description}</p>
-        <a target="_blank" href={current.source} rel="noopener noreferrer">
-          Go To Source
-        </a>
-      </div>
-    </Slides>
+  return (
+    <AnimatePresence initial={false} custom={direction}>
+      <Slides
+        {...swipeHandler}
+        key={currentIndex}
+        custom={direction}
+        variants={slideAnimation}
+        initial="enter"
+        animate="center"
+        exit="exit"
+        transition={{
+          duration: 0.5,
+          ease: "easeInOut",
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          className="slide-hero"
+        >
+          <div className="slide-hero__modal">
+            <ModalArt />
+          </div>
+          <div className="slide-hero__painting">
+            <Image
+              priority
+              width={327}
+              height={280}
+              layout="responsive"
+              objectFit={"contain"}
+              src={
+                breakPoint767
+                  ? current.images.hero.large
+                  : current.images.hero.small
+              }
+              alt={current.name}
+              className="slide-hero__painting"
+            />
+          </div>
+
+          <div className="slide-hero__title">
+            <h1>{current.name}</h1>
+            <p>{current.artist.name}</p>
+          </div>
+          <div className="slide-hero__artist">
+            <Image
+              priority
+              width={64}
+              height={64}
+              layout="responsive"
+              src={current.artist.image}
+              alt={current.name}
+            />
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          className="slide-description"
+        >
+          <h1>{current.year}</h1>
+          <p>{current.description}</p>
+          <a target="_blank" href={current.source} rel="noopener noreferrer">
+            Go To Source
+          </a>
+        </motion.div>
+      </Slides>
+    </AnimatePresence>
   );
 }
 
-const Slides = styled.div`
+const Slides = styled(motion.div)`
   @media ${(props) => props.theme.laptop} {
     display: flex;
+    @media ${(props) => props.theme.desktop} {
+    }
   }
 
   .slide-hero {
@@ -103,7 +135,7 @@ const Slides = styled.div`
         position: absolute;
         top: 544px;
 
-        @media ${(props) => props.theme.tablet} {
+        @media ${(props) => props.theme.laptop} {
           top: 380px;
           @media ${(props) => props.theme.desktop} {
             left: 5px;
@@ -140,7 +172,7 @@ const Slides = styled.div`
 
           @media ${(props) => props.theme.desktop} {
             top: 70px;
-            height: 238px;
+            height: 280px;
             left: 18rem;
           }
         }
@@ -293,3 +325,22 @@ const Slides = styled.div`
     }
   }
 `;
+
+export const slideAnimation = {
+  enter: (direction) => {
+    return {
+      x: direction > 0 ? "100%" : "-100%",
+      opacity: 0,
+    };
+  },
+  center: {
+    x: "0%",
+    opacity: 1,
+  },
+  exit: (direction) => {
+    return {
+      x: direction < 0 ? "100%" : "-100%",
+      opacity: 0,
+    };
+  },
+};

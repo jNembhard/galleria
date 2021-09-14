@@ -2,6 +2,7 @@ import "../styles/globals.scss";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
 import store from "../redux/store";
+import { AnimatePresence, motion } from "framer-motion";
 
 const size = {
   tablet: "767px",
@@ -22,14 +23,33 @@ const theme = {
   desktop: `(min-width: ${size.desktop})`,
 };
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   return (
     <>
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </Provider>
+      <AnimatePresence
+        oneExitComplete={() => window.scrollTo(0, 0)}
+        exitBeforeEnter
+      >
+        <motion.div
+          key={router.route}
+          initial="pageInitial"
+          animate="pageAnimate"
+          variants={{
+            pageInitial: {
+              opacity: 0,
+            },
+            pageAnimate: {
+              opacity: 1,
+            },
+          }}
+        >
+          <Provider store={store}>
+            <ThemeProvider theme={theme}>
+              <Component {...pageProps} />
+            </ThemeProvider>
+          </Provider>
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 }

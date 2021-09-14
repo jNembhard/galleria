@@ -3,29 +3,48 @@ import Image from "next/image";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { setCurrentSlide } from "../redux/slideshowReducer";
+import { motion } from "framer-motion";
 
 export default function PortraitRow({ id, thumbnail, height, name, author }) {
   const dispatch = useDispatch();
 
   return (
     <Link href={`slides/slideshow`} passHref>
-      <Portrait onClick={() => dispatch(setCurrentSlide(id ? id : 0))}>
-        <div className="portrait-image">
-          <Image
-            priority
-            src={thumbnail}
-            width={327}
-            height={height}
-            layout="responsive"
-            objectFit={"contain"}
-            alt={name}
-          />
-        </div>
-        <div className="portrait-description">
-          <h1>{name}</h1>
-          <p>{author}</p>
-        </div>
-      </Portrait>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {
+            scale: 0.8,
+            opacity: 0,
+          },
+          visible: {
+            scale: 1,
+            opacity: 1,
+            transition: {
+              delay: 0.4,
+            },
+          },
+        }}
+      >
+        <Portrait onClick={() => dispatch(setCurrentSlide(id ? id : 0))}>
+          <div className="portrait-image">
+            <Image
+              priority
+              src={thumbnail}
+              width={327}
+              height={height}
+              layout="responsive"
+              objectFit={"contain"}
+              alt={name}
+            />
+          </div>
+          <div className="portrait-description">
+            <h1>{name}</h1>
+            <p>{author}</p>
+          </div>
+        </Portrait>
+      </motion.div>
     </Link>
   );
 }

@@ -8,6 +8,7 @@ import {
   paginate,
 } from "../redux/slideshowReducer";
 import ProgressBar from "./ProgressBar";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Arrow() {
   const current = useSelector(currentSlide);
@@ -18,44 +19,46 @@ export default function Arrow() {
   const progressBar = Math.round(((currentIndex + 1) / slidesLength) * 100);
 
   return (
-    <ArrowWrap>
-      <ProgressBar width={progressBar}></ProgressBar>
+    <AnimatePresence>
+      <ArrowWrap key={currentIndex} animate="center">
+        <ProgressBar width={progressBar}></ProgressBar>
 
-      <div className="arrow-container">
-        <div className="arrow-container__description">
-          <h3>{current.name}</h3>
-          <p>{current.artist.name}</p>
-        </div>
-
-        <div className="arrow">
-          <div onClick={() => dispatch(paginate(-1))} className="arrow__left">
-            <Image
-              priority
-              src="/assets/shared/icon-back-button.svg"
-              width={16}
-              height={16}
-              layout="responsive"
-              alt="previous arrow"
-            />
+        <div className="arrow-container">
+          <div className="arrow-container__description">
+            <h3>{current.name}</h3>
+            <p>{current.artist.name}</p>
           </div>
 
-          <div onClick={() => dispatch(paginate(1))} className="arrow__right">
-            <Image
-              priority
-              src="/assets/shared/icon-next-button.svg"
-              width={16}
-              height={16}
-              layout="responsive"
-              alt="next arrow"
-            />
+          <div className="arrow">
+            <div onClick={() => dispatch(paginate(-1))} className="arrow__left">
+              <Image
+                priority
+                src="/assets/shared/icon-back-button.svg"
+                width={16}
+                height={16}
+                layout="responsive"
+                alt="previous arrow"
+              />
+            </div>
+
+            <div onClick={() => dispatch(paginate(1))} className="arrow__right">
+              <Image
+                priority
+                src="/assets/shared/icon-next-button.svg"
+                width={16}
+                height={16}
+                layout="responsive"
+                alt="next arrow"
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </ArrowWrap>
+      </ArrowWrap>
+    </AnimatePresence>
   );
 }
 
-const ArrowWrap = styled.div`
+const ArrowWrap = styled(motion.div)`
   width: 100%;
   .arrow-container {
     display: flex;

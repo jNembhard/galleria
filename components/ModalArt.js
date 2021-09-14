@@ -12,11 +12,6 @@ Modal.setAppElement("#__next");
 export default function ModalArt() {
   const current = useSelector(currentSlide);
   const router = useRouter();
-  const backDropHandler = (event) => {
-    if (!modalWrapperRef?.current?.contains(event.target)) {
-      onclose();
-    }
-  };
 
   const customStyles = {
     overlay: {
@@ -25,7 +20,6 @@ export default function ModalArt() {
     content: {
       backgroundColor: "transparent",
       border: "transparent",
-      maxHeight: "80%",
       overflow: "hidden",
     },
   };
@@ -120,6 +114,9 @@ const Lightbox = styled.div`
   margin-top: 0;
 
   @media ${(props) => props.theme.tablet} {
+    @media ${(props) => props.theme.desktop} {
+      height: 770px;
+    }
   }
 
   @keyframes fadeIn {
@@ -160,6 +157,12 @@ const Close = styled.div`
 
   @media ${(props) => props.theme.tablet} {
     margin-left: 90%;
+    @media ${(props) => props.theme.laptop} {
+      @media ${(props) => props.theme.desktop} {
+        margin-top: -1%;
+        font-size: 20px;
+      }
+    }
   }
 `;
 

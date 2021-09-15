@@ -26,13 +26,13 @@ export default function Slide() {
   });
 
   return (
-    <AnimatePresence initial={false} custom={direction}>
+    <AnimatePresence initial={false} custom={direction} exitBeforeEnter>
       <Slides
         {...swipeHandler}
         key={currentIndex}
         custom={direction}
         variants={slideAnimation}
-        initial="enter"
+        initial="in"
         animate="center"
         exit="exit"
         transition={{
@@ -43,7 +43,7 @@ export default function Slide() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
+          transition={{ duration: 1.1 }}
           className="slide-hero"
         >
           <div className="slide-hero__modal">

@@ -13,9 +13,8 @@ export default function Slideshow() {
         <meta name="description" content="A Galleria Slideshow." />
         <link rel="icon" href="/favicon.ico" />
       </Head>{" "}
+      <Header name="Stop Slideshow" href="/" />
       <AnimatePresence exitBeforeEnter>
-        <Header name="Stop Slideshow" href="/" />
-
         <main className={styles.slideshowMain}>
           <Slide />
         </main>

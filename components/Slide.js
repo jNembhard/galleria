@@ -32,7 +32,6 @@ export default function Slide() {
         key={currentIndex}
         custom={direction}
         variants={slideAnimation}
-        initial="in"
         animate="center"
         exit="exit"
         transition={{
@@ -43,7 +42,7 @@ export default function Slide() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.1 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
           className="slide-hero"
         >
           <div className="slide-hero__modal">
@@ -85,7 +84,7 @@ export default function Slide() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
+          transition={{ duration: 0.5 }}
           className="slide-description"
         >
           <h1>{current.year}</h1>
@@ -245,10 +244,6 @@ const Slides = styled(motion.div)`
   .slide-description {
     margin-bottom: 67px;
 
-    @media ${(props) => props.theme.desktop} {
-      /* margin-left: 410px; */
-    }
-
     h1 {
       text-align: right;
       position: relative;
@@ -329,7 +324,7 @@ const Slides = styled(motion.div)`
 export const slideAnimation = {
   enter: (direction) => {
     return {
-      x: direction > 0 ? "100%" : "-100%",
+      x: direction > 0 ? "-100%" : "100%",
       opacity: 0,
     };
   },

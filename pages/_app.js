@@ -1,5 +1,5 @@
 import "../styles/globals.scss";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
 import store from "../redux/store";
 import { AnimatePresence, motion } from "framer-motion";
@@ -26,30 +26,30 @@ const theme = {
 function MyApp({ Component, pageProps, router }) {
   return (
     <>
-      <AnimatePresence
-        oneExitComplete={() => window.scrollTo(0, 0)}
-        exitBeforeEnter
-      >
-        <motion.div
-          key={router.route}
-          initial="pageInitial"
-          animate="pageAnimate"
-          variants={{
-            pageInitial: {
-              opacity: 0,
-            },
-            pageAnimate: {
-              opacity: 1,
-            },
-          }}
+      <ThemeProvider theme={theme}>
+        <AnimatePresence
+          oneExitComplete={() => window.scrollTo(0, 0)}
+          exitBeforeEnter
         >
-          <Provider store={store}>
-            <ThemeProvider theme={theme}>
+          <motion.div
+            key={router.route}
+            initial="pageInitial"
+            animate="pageAnimate"
+            variants={{
+              pageInitial: {
+                opacity: 0,
+              },
+              pageAnimate: {
+                opacity: 1,
+              },
+            }}
+          >
+            <Provider store={store}>
               <Component {...pageProps} />
-            </ThemeProvider>
-          </Provider>
-        </motion.div>
-      </AnimatePresence>
+            </Provider>
+          </motion.div>
+        </AnimatePresence>
+      </ThemeProvider>
     </>
   );
 }

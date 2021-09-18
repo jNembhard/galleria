@@ -110,7 +110,7 @@ const Lightbox = styled.div`
   animation-name: fadeIn;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
-  animation-duration: 0.6s;
+  animation-duration: 0.5s;
   margin-top: 0;
 
   @media ${(props) => props.theme.tablet} {
@@ -125,22 +125,6 @@ const Lightbox = styled.div`
     }
     100% {
       opacity: 1;
-    }
-  }
-
-  &:after {
-    content: "";
-    animation-name: fadeInOpacity;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in;
-    animation-duration: 0.6s;
-    @keyframes fadeOut {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
     }
   }
 `;

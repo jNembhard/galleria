@@ -55,6 +55,12 @@ const Portrait = styled.div`
   margin-bottom: 24px;
   cursor: pointer;
 
+  @supports (grid-template-rows: masonry) {
+    @media ${(props) => props.theme.tablet} {
+      margin-bottom: 0;
+    }
+  }
+
   &:hover {
     opacity: 0.75;
     animation: fadeIn 1s;

@@ -62,6 +62,7 @@ const Picture = styled.div`
       gap: 1em;
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: masonry;
+      align-tracks: space-between;
 
       & > * {
         margin-bottom: 0em;
@@ -72,6 +73,7 @@ const Picture = styled.div`
         gap: 1em;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: masonry;
+        align-tracks: unset;
 
         & > * {
           margin-bottom: 0em;

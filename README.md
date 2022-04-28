@@ -47,7 +47,7 @@ This was definitely one of those projects you'll go into thinking it should be e
 
 At first glance, the main page looked trival. I started with a mobile first layout and scaled up to the tablet version of the application. The pictures were all different heights which led to me discorvering implementations for a Masonry layout.
 
-Traditionally,i t requires some JavaScript implementation through use of a library. Firefox Nightly currently hosts a function for developers,
+Traditionally, it requires some JavaScript implementation through use of a library. Firefox Nightly currently hosts a function for developers,
 
 ```css
 grid-row-template: masonry;
@@ -97,4 +97,4 @@ You can even input custom functions that animate as your component is removed fr
 
 ## Author
 
-- Website - [Jason Nembhard](https://jasonnembhard.com)
+- Website - [Jason Nembhard](https://www.jasonnembhard.com)

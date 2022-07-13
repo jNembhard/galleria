@@ -46,7 +46,6 @@ const Picture = styled.div`
       margin-bottom: 1em;
     }
     @media ${(props) => props.theme.laptop} {
-      display: column;
       margin: 0 auto;
       columns: 4;
 

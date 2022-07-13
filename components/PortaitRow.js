@@ -9,7 +9,7 @@ export default function PortraitRow({ id, thumbnail, height, name, author }) {
   const dispatch = useDispatch();
 
   return (
-    <Link href={`slides/slideshow`} passHref>
+    <Link href="/slides/slideshow" passHref>
       <motion.div
         initial="hidden"
         animate="visible"
@@ -101,15 +101,11 @@ const Portrait = styled.div`
 
     @media ${(props) => props.theme.tablet} {
       bottom: 0;
-
-      @media ${(props) => props.theme.laptop} {
-        bottom: -10px;
-      }
     }
 
     h1 {
       z-index: 10;
-      font-size: 24px;
+      font-size: 50px;
       color: ${(props) => props.theme.white};
       margin-bottom: 7px;
       line-height: auto;

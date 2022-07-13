@@ -105,7 +105,7 @@ const Portrait = styled.div`
 
     h1 {
       z-index: 10;
-      font-size: 50px;
+      font-size: 24px;
       color: ${(props) => props.theme.white};
       margin-bottom: 7px;
       line-height: auto;
